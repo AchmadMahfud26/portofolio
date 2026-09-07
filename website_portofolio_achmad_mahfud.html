@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio & Resume AI | Achmad Mahfud, S.Kom.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+        
+        :root {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #0284c7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+
+        .glass-panel-dark {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(51, 65, 85, 0.6);
+        }
+
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px -10px rgba(37, 99, 235, 0.15);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #94a3b8;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #64748b;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-blue-600 selection:text-white">
+
+    <!-- Navigation Bar -->
+    <nav class="fixed w-full z-50 top-0 px-4 py-3">
+        <div class="max-w-6xl mx-auto glass-panel rounded-2xl shadow-sm px-6 py-3 flex justify-between items-center">
+            <a href="#home" class="flex items-center gap-2">
+                <span class="w-9 h-9 rounded-xl bg-blue-600 text-white font-black text-lg flex items-center justify-center shadow-md shadow-blue-500/30">AM</span>
+                <div class="flex flex-col">
+                    <span class="font-extrabold text-slate-900 tracking-tight leading-none">Achmad Mahfud</span>
+                    <span class="text-[10px] font-bold text-blue-600 tracking-wider uppercase mt-0.5">S.Kom | QC & IT Specialist</span>
+                </div>
+            </a>
+
+            <div class="hidden lg:flex items-center space-x-7 text-xs font-bold uppercase tracking-wider text-slate-600">
+                <a href="#profil" class="hover:text-blue-600 transition">Profil</a>
+                <a href="#pendidikan" class="hover:text-blue-600 transition">Pendidikan</a>
+                <a href="#pengalaman" class="hover:text-blue-600 transition">Pengalaman</a>
+                <a href="#proyek" class="hover:text-blue-600 transition">Proyek IoT</a>
+                <a href="#ai-recruiter" class="text-blue-600 bg-blue-50 px-3 py-1.5 rounded-lg border border-blue-200 flex items-center gap-1.5 hover:bg-blue-100 transition">
+                    <i class="fas fa-robot text-blue-600"></i> AI Suite
+                </a>
+            </div>
+
+            <div class="flex items-center gap-2 sm:gap-3">
+                <!-- Main Header API Key Button -->
+                <button onclick="openApiKeyModal()" class="text-xs font-bold bg-amber-500 hover:bg-amber-600 text-slate-950 px-3 py-2 rounded-xl transition shadow-md flex items-center gap-1.5">
+                    <i class="fas fa-key text-slate-950"></i>
+                    <span class="hidden sm:inline">Atur API Key</span>
+                </button>
+
+                <a href="mailto:achmadmahfud01@gmail.com" class="text-xs font-bold bg-blue-600 text-white px-4 py-2 rounded-xl hover:bg-blue-700 transition shadow-md shadow-blue-600/20 uppercase tracking-wider">
+                    Kontak
+                </a>
+                <button id="mobileMenuBtn" class="lg:hidden text-xl text-slate-700 p-2">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobileMenu" class="hidden lg:hidden max-w-6xl mx-auto mt-2 glass-panel rounded-2xl p-4 shadow-xl flex flex-col space-y-3 text-sm font-semibold">
+            <a href="#profil" class="mobile-link py-2 px-3 rounded-lg hover:bg-slate-100">Profil & Data Diri</a>
+            <a href="#pendidikan" class="mobile-link py-2 px-3 rounded-lg hover:bg-slate-100">Pendidikan & Transkrip</a>
+            <a href="#pengalaman" class="mobile-link py-2 px-3 rounded-lg hover:bg-slate-100">Riwayat Pengalaman Kerja</a>
+            <a href="#proyek" class="mobile-link py-2 px-3 rounded-lg hover:bg-slate-100">Proyek Skripsi IoT</a>
+            <a href="#ai-recruiter" class="mobile-link py-2 px-3 rounded-lg bg-blue-50 text-blue-700">AI Recruiter Suite</a>
+            <button onclick="openApiKeyModal()" class="w-full text-left py-2 px-3 rounded-lg bg-amber-500 text-slate-950 font-bold flex items-center gap-2">
+                <i class="fas fa-key"></i> Atur Gemini API Key
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-28 pb-16 px-4 bg-gradient-to-b from-white via-slate-50 to-slate-100 border-b border-slate-200/60">
+        <div class="max-w-6xl mx-auto grid lg:grid-cols-12 gap-12 items-center">
+            
+            <div class="lg:col-span-7 text-center lg:text-left">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-bold uppercase tracking-wider mb-6 shadow-sm">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    Sarjana Komputer (S.Kom) • IPK 3.72 (Pujian)
+                </div>
+
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.15] mb-6 tracking-tight">
+                    Achmad <span class="gradient-text">Mahfud, S.Kom.</span>
+                </h1>
+
+                <p class="text-base sm:text-lg text-slate-600 mb-8 leading-relaxed max-w-2xl">
+                    Lulusan <strong>S1 Teknik Informatika (IPK 3.72 Pujian)</strong> dan <strong>Teknik Ketenagalistrikan</strong>. Memiliki pengalaman kerja profesional lebih dari 5 tahun di bidang <strong>Quality Control (QC Visual/Line Inspector)</strong> dan <strong>Produksi (Assembling & Plastik Injeksi)</strong> pada industri manufaktur otomotif terkemuka.
+                </p>
+
+                <!-- Quick Badge Metadata -->
+                <div class="flex flex-wrap justify-center lg:justify-start gap-3 mb-8">
+                    <span class="inline-flex items-center gap-2 bg-white border border-slate-200 shadow-sm text-slate-700 text-xs font-semibold px-3.5 py-2 rounded-xl">
+                        <i class="fas fa-map-marker-alt text-blue-600"></i> Cikarang Barat, Bekasi
+                    </span>
+                    <span class="inline-flex items-center gap-2 bg-white border border-slate-200 shadow-sm text-slate-700 text-xs font-semibold px-3.5 py-2 rounded-xl">
+                        <i class="fas fa-graduation-cap text-blue-600"></i> Universitas Pelita Bangsa
+                    </span>
+                    <span class="inline-flex items-center gap-2 bg-white border border-slate-200 shadow-sm text-slate-700 text-xs font-semibold px-3.5 py-2 rounded-xl">
+                        <i class="fas fa-envelope text-blue-600"></i> achmadmahfud01@gmail.com
+                    </span>
+                </div>
+
+                <!-- CTA Buttons & Gemini TTS Voice Button -->
+                <div class="flex flex-wrap justify-center lg:justify-start items-center gap-4">
+                    <a href="#ai-recruiter" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3.5 rounded-xl shadow-lg shadow-blue-600/25 transition flex items-center gap-2.5 text-sm">
+                        <i class="fas fa-robot text-base"></i> Tanya AI / Recruiter Suite
+                    </a>
+
+                    <!-- Gemini TTS Voice Summary Button -->
+                    <button id="ttsPlayBtn" class="bg-slate-900 hover:bg-slate-800 text-white font-bold px-6 py-3.5 rounded-xl shadow-lg transition flex items-center gap-3 text-sm">
+                        <span id="ttsIconContainer" class="w-6 h-6 rounded-full bg-blue-500/30 flex items-center justify-center text-blue-400">
+                            <i class="fas fa-volume-up text-xs"></i>
+                        </span>
+                        <span id="ttsBtnText">Dengarkan Ringkasan AI (Voice)</span>
+                    </button>
+                </div>
+
+                <!-- Audio status indicator -->
+                <div id="ttsStatus" class="hidden mt-3 text-xs text-slate-500 flex items-center justify-center lg:justify-start gap-2">
+                    <i class="fas fa-spinner fa-spin text-blue-600"></i>
+                    <span>Memproses suara ringkasan CV dengan Gemini AI TTS...</span>
+                </div>
+            </div>
+
+            <!-- Hero Image & Stats Card -->
+            <div class="lg:col-span-5 flex justify-center">
+                <div class="relative w-full max-w-sm">
+                    <div class="absolute -top-6 -left-6 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl"></div>
+                    <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-sky-500/10 rounded-full blur-2xl"></div>
+                    
+                    <div class="relative bg-white p-6 rounded-3xl border border-slate-200 shadow-xl space-y-6">
+                        <div class="flex items-center gap-4 pb-4 border-b border-slate-100">
+                            <div class="w-20 h-20 bg-slate-100 rounded-2xl flex items-center justify-center text-slate-400 border border-slate-200">
+                                <i class="fas fa-user-circle text-6xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-extrabold text-slate-900 text-lg">Achmad Mahfud</h3>
+                                <p class="text-xs text-slate-500 font-medium">Lahir: Purworejo, 26 Sept 2000</p>
+                                <span class="inline-block mt-2 px-2.5 py-0.5 bg-blue-50 text-blue-700 text-[11px] font-bold rounded-md">
+                                    Predikat Skripsi: Pujian
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Highlights Stats -->
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-100 text-center">
+                                <div class="text-2xl font-extrabold text-blue-600">5+ Thn</div>
+                                <div class="text-[11px] font-bold text-slate-500 uppercase mt-0.5">Pengalaman Manufaktur</div>
+                            </div>
+                            <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-100 text-center">
+                                <div class="text-2xl font-extrabold text-blue-600">3.72</div>
+                                <div class="text-[11px] font-bold text-slate-500 uppercase mt-0.5">IPK S1 Informatika</div>
+                            </div>
+                            <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-100 text-center">
+                                <div class="text-2xl font-extrabold text-blue-600">4 Perusahaan</div>
+                                <div class="text-[11px] font-bold text-slate-500 uppercase mt-0.5">Industri Otomotif</div>
+                            </div>
+                            <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-100 text-center">
+                                <div class="text-2xl font-extrabold text-blue-600">IoT & QC</div>
+                                <div class="text-[11px] font-bold text-slate-500 uppercase mt-0.5">Dual Competency</div>
+                            </div>
+                        </div>
+
+                        <div class="p-3 bg-blue-50/70 border border-blue-100 rounded-xl flex items-center justify-between text-xs font-bold text-blue-900">
+                            <span><i class="fas fa-check-circle text-blue-600 mr-1.5"></i> Status: Belum Menikah</span>
+                            <span>165 cm / 56 kg</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- AI RECRUITER SUITE (Powered by Gemini API) -->
+    <section id="ai-recruiter" class="py-20 px-4 gradient-bg text-white relative overflow-hidden">
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-6xl mx-auto relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-10">
+                <div class="inline-flex items-center gap-2 bg-blue-500/20 border border-blue-400/30 text-blue-300 text-xs font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider mb-4">
+                    <i class="fas fa-sparkles text-amber-400"></i> Powered by Gemini 3 Flash LLM
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-black tracking-tight mb-4">Gemini AI Recruiter Assistant Suite</h2>
+                <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
+                    Fitur cerdas untuk membantu Perekrut & HRD mengevaluasi latar belakang Achmad Mahfud secara cepat, interaktif, dan terukur.
+                </p>
+
+                <!-- API Key Configuration Banner for Public Hosting -->
+                <div class="bg-slate-900/90 border border-amber-500/40 rounded-2xl p-4 max-w-2xl mx-auto text-left flex flex-col sm:flex-row items-center justify-between gap-3 shadow-xl">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-amber-500/20 border border-amber-500/50 text-amber-400 flex items-center justify-center shrink-0 text-lg">
+                            <i class="fas fa-key"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs font-extrabold text-white block">Pengaturan Gemini API Key</span>
+                            <span id="apiKeyStatusText" class="text-[11px] text-amber-400 font-semibold block">Status: Mode Demo / Klik tombol kuning untuk hubungkan Key Live</span>
+                        </div>
+                    </div>
+                    <button onclick="openApiKeyModal()" class="text-xs font-bold bg-amber-500 hover:bg-amber-400 text-slate-950 px-4 py-2.5 rounded-xl transition shadow-md shrink-0 flex items-center gap-2">
+                        <i class="fas fa-key"></i> Atur API Key
+                    </button>
+                </div>
+            </div>
+
+            <!-- AI Suite Tabs Header -->
+            <div class="flex justify-center mb-8">
+                <div class="inline-flex p-1.5 bg-slate-800/80 border border-slate-700/80 rounded-2xl">
+                    <button id="tabChatBtn" onclick="switchAiTab('chat')" class="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition bg-blue-600 text-white shadow-md">
+                        <i class="fas fa-comments mr-2"></i> Tanya AI tentang Achmad
+                    </button>
+                    <button id="tabMatchBtn" onclick="switchAiTab('match')" class="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition text-slate-300 hover:text-white">
+                        <i class="fas fa-sliders-h mr-2"></i> Match & Evaluasi Kebutuhan Job
+                    </button>
+                </div>
+            </div>
+
+            <!-- TAB 1: Chat Assistant -->
+            <div id="aiTabChat" class="glass-panel-dark rounded-3xl p-6 sm:p-8 max-w-4xl mx-auto shadow-2xl">
+                <div class="flex items-center justify-between pb-4 border-b border-slate-700/60 mb-6">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center text-white text-lg font-bold">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-white text-base">Achmad Career AI Assistant</h3>
+                            <p class="text-xs text-slate-400">Menjawab pertanyaan seputar CV, Keahlian, dan Pengalaman Achmad</p>
+                        </div>
+                    </div>
+                    
+                    <button onclick="openApiKeyModal()" class="text-[11px] bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/40 font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5 transition">
+                        <i class="fas fa-key"></i> Atur API Key
+                    </button>
+                </div>
+
+                <!-- Chat Quick Prompts -->
+                <div class="mb-4 flex flex-wrap gap-2">
+                    <span class="text-xs text-slate-400 self-center mr-1">Contoh pertanyaan:</span>
+                    <button onclick="sendQuickQuestion('Sebutkan ringkasan kualifikasi utama Achmad Mahfud!')" class="text-xs bg-slate-800 hover:bg-slate-700 text-blue-300 px-3 py-1.5 rounded-lg border border-slate-700 transition">
+                        📋 Ringkasan Kualifikasi
+                    </button>
+                    <button onclick="sendQuickQuestion('Apakah Achmad berpengalaman di Quality Control industri otomotif?')" class="text-xs bg-slate-800 hover:bg-slate-700 text-blue-300 px-3 py-1.5 rounded-lg border border-slate-700 transition">
+                        🔍 Pengalaman Quality Control
+                    </button>
+                    <button onclick="sendQuickQuestion('Jelaskan latar belakang S1 Teknik Informatika dan proyek IoT-nya!')" class="text-xs bg-slate-800 hover:bg-slate-700 text-blue-300 px-3 py-1.5 rounded-lg border border-slate-700 transition">
+                        🎓 S1 Informatika & Proyek IoT
+                    </button>
+                </div>
+
+                <!-- Chat Messages Box -->
+                <div id="chatBox" class="h-80 overflow-y-auto space-y-4 pr-2 mb-4 text-sm scroll-smooth">
+                    <!-- Default AI Greeting -->
+                    <div class="flex gap-3 items-start">
+                        <div class="w-8 h-8 rounded-lg bg-blue-600 shrink-0 flex items-center justify-center text-white text-xs font-bold">AI</div>
+                        <div class="bg-slate-800/90 border border-slate-700 text-slate-200 p-3.5 rounded-2xl rounded-tl-none max-w-2xl leading-relaxed">
+                            Halo! Saya Asisten AI Portofolio Achmad Mahfud. Anda dapat menanyakan apa saja terkait latar belakang pendidikan S1 Teknik Informatika (IPK 3.72 Pujian), pengalaman kerja di 4 perusahaan otomotif (Ichikoh, Hitachi Astemo, Matsuo Precision, Federal Nittan), serta skill QC & Ketenagalistrikannya. Silakan ketik pertanyaan Anda!
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chat Input Form -->
+                <form id="chatForm" class="flex gap-3">
+                    <input type="text" id="chatInput" placeholder="Tanyakan seputar skill, pengalaman, atau kualifikasi Achmad..." required class="flex-1 bg-slate-900/90 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition">
+                    <button type="submit" id="chatSubmitBtn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-xl transition flex items-center gap-2 text-sm shrink-0">
+                        <span>Kirim</span>
+                        <i class="fas fa-paper-plane text-xs"></i>
+                    </button>
+                </form>
+            </div>
+
+            <!-- TAB 2: Job Match Evaluator -->
+            <div id="aiTabMatch" class="hidden glass-panel-dark rounded-3xl p-6 sm:p-8 max-w-4xl mx-auto shadow-2xl">
+                <div class="mb-6">
+                    <h3 class="font-extrabold text-white text-lg mb-1"><i class="fas fa-briefcase text-blue-400 mr-2"></i> Evaluasi Kesesuaian Lowongan Pekerjaan (Job Match)</h3>
+                    <p class="text-xs text-slate-400">Tempelkan deskripsi pekerjaan (Job Description / kriteria posisi) yang sedang Anda buka, lalu AI akan menganalisis kecocokan profil Achmad Mahfud secara instan!</p>
+                </div>
+
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Job Description / Syarat Kualifikasi Karyawan:</label>
+                        <textarea id="jdInput" rows="4" placeholder="Contoh: Dicari Quality Inspector / Operator QC / Staff QA yang memahami alat ukur, ceksheet produksi, berpengalaman di manufaktur otomotif atau menguasai dasar teknik/IT..." class="w-full bg-slate-900/90 border border-slate-700 rounded-xl p-4 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition"></textarea>
+                    </div>
+
+                    <button id="evaluateMatchBtn" onclick="evaluateJobMatch()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 rounded-xl transition shadow-lg flex items-center justify-center gap-2 text-sm">
+                        <i class="fas fa-calculator"></i> Analisis Kecocokan Job & Buatkan Surat Rekomendasi
+                    </button>
+                </div>
+
+                <!-- Match Results Output -->
+                <div id="matchResultContainer" class="hidden mt-8 pt-6 border-t border-slate-700/80 space-y-6">
+                    <div class="flex flex-col sm:flex-row items-center justify-between bg-slate-900/90 p-5 rounded-2xl border border-slate-700 gap-4">
+                        <div>
+                            <span class="text-xs text-slate-400 font-bold uppercase tracking-wider block mb-1">Skor Kecocokan Profil</span>
+                            <h4 id="matchScoreText" class="text-3xl font-black text-emerald-400">92% Match</h4>
+                        </div>
+                        <div class="w-full sm:w-2/3 bg-slate-800 rounded-full h-4 overflow-hidden border border-slate-700">
+                            <div id="matchProgressBar" class="bg-gradient-to-r from-blue-500 to-emerald-400 h-full transition-all duration-1000" style="width: 0%"></div>
+                        </div>
+                    </div>
+
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-800">
+                            <h5 class="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-2"><i class="fas fa-check-circle mr-1.5"></i> Keunggulan Cocok:</h5>
+                            <div id="matchProsList" class="text-xs text-slate-300 space-y-1.5"></div>
+                        </div>
+                        <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-800">
+                            <h5 class="text-xs font-bold text-amber-400 uppercase tracking-wider mb-2"><i class="fas fa-info-circle mr-1.5"></i> Catatan & Pertimbangan:</h5>
+                            <div id="matchConsList" class="text-xs text-slate-300 space-y-1.5"></div>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/90 p-5 rounded-2xl border border-slate-700">
+                        <div class="flex justify-between items-center mb-3">
+                            <h5 class="text-xs font-bold text-blue-400 uppercase tracking-wider"><i class="fas fa-file-alt mr-1.5"></i> Draf Surat Pengantar / Cover Letter Rekomendasi AI:</h5>
+                            <button onclick="copyCoverLetter()" class="text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 px-3 py-1 rounded-lg border border-slate-700 transition">
+                                <i class="fas fa-copy mr-1"></i> Salin Teks
+                            </button>
+                        </div>
+                        <p id="coverLetterText" class="text-xs sm:text-sm text-slate-300 leading-relaxed whitespace-pre-line font-mono bg-slate-950/60 p-4 rounded-xl border border-slate-800/80"></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Detailed Personal Profile Section -->
+    <section id="profil" class="py-20 px-4 bg-white border-b border-slate-200/60">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight mb-3">Profil & Bio Lengkap</h2>
+                <div class="h-1.5 w-16 bg-blue-600 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-10 items-start">
+                
+                <!-- Left Column: Personal Metadata -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="bg-slate-50 p-6 rounded-3xl border border-slate-200/80 shadow-sm space-y-4">
+                        <h3 class="text-lg font-bold text-slate-900 pb-3 border-b border-slate-200 flex items-center gap-2">
+                            <i class="fas fa-address-card text-blue-600"></i> Informasi Pribadi (Sesuai KTP)
+                        </h3>
+
+                        <div class="space-y-3 text-sm">
+                            <div class="flex justify-between py-1.5 border-b border-slate-100">
+                                <span class="text-slate-500 font-medium">Nama Lengkap</span>
+                                <span class="font-bold text-slate-900">ACHMAD MAHFUD</span>
+                            </div>
+                            <div class="flex justify-between py-1.5 border-b border-slate-100">
+                                <span class="text-slate-500 font-medium">Tempat, Tgl Lahir</span>
+                                <span class="font-bold text-slate-900">Purworejo, 26 September 2000</span>
+                            </div>
+                            <div class="flex justify-between py-1.5 border-b border-slate-100">
+                                <span class="text-slate-500 font-medium">Agama</span>
+                                <span class="font-bold text-slate-900">Islam</span>
+                            </div>
+                            <div class="flex justify-between py-1.5 border-b border-slate-100">
+                                <span class="text-slate-500 font-medium">Status Perkawinan</span>
+                                <span class="font-bold text-slate-900">Belum Kawin</span>
+                            </div>
+                            <div class="flex justify-between py-1.5 border-b border-slate-100">
+                                <span class="text-slate-500 font-medium">Tinggi / Berat Badan</span>
+                                <span class="font-bold text-slate-900">165 cm / 56 kg</span>
+                            </div>
+                            <div class="flex justify-between py-1.5 border-b border-slate-100">
+                                <span class="text-slate-500 font-medium">Golongan Darah</span>
+                                <span class="font-bold text-slate-900">AB</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact & Address Details -->
+                    <div class="bg-blue-50/60 p-6 rounded-3xl border border-blue-100 space-y-4">
+                        <h4 class="font-bold text-blue-900 text-sm uppercase tracking-wider flex items-center gap-2">
+                            <i class="fas fa-map-marked-alt text-blue-600"></i> Alamat & Domisili
+                        </h4>
+                        
+                        <div class="space-y-3 text-xs leading-relaxed">
+                            <div class="bg-white p-3.5 rounded-2xl border border-blue-100 shadow-sm">
+                                <span class="font-bold text-blue-900 block mb-1">📍 Alamat Domisili Saat Ini:</span>
+                                <p class="text-slate-700">Kp. Cibarengkok RT 004 / RW 002, Desa Jatiwangi, Kec. Cikarang Barat, Kab. Bekasi, Jawa Barat 17530</p>
+                            </div>
+                            <div class="bg-white p-3.5 rounded-2xl border border-blue-100 shadow-sm">
+                                <span class="font-bold text-slate-700 block mb-1">🏠 Alamat Asal (KTP):</span>
+                                <p class="text-slate-600 italic">Kewarakan Wetan RT 003 / RW 001, Desa Kendalrejo, Kec. Pituruh, Kab. Purworejo, Jawa Tengah 54263</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Summary & Skill Matrix -->
+                <div class="lg:col-span-7 space-y-8">
+                    <div>
+                        <h3 class="text-2xl font-black text-slate-900 mb-4">Ringkasan Profesional</h3>
+                        <p class="text-slate-600 leading-relaxed mb-4 text-sm sm:text-base">
+                            Saya adalah seorang lulusan <strong>S1 Teknik Informatika (Universitas Pelita Bangsa, Lulus 2025 dengan Predikat Pujian)</strong> yang dikombinasikan dengan latar belakang <strong>Teknik Ketenagalistrikan (SMK YPP Purworejo)</strong>. 
+                        </p>
+                        <p class="text-slate-600 leading-relaxed text-sm sm:text-base">
+                            Selama lebih dari 5 tahun di dunia industri otomotif dan manufaktur, saya telah bekerja sebagai <strong>Quality Inspector</strong> dan <strong>Operator Produksi</strong> di perusahaan manufaktur papan atas seperti <em>PT Ichikoh Indonesia (Valeo Group)</em>, <em>PT Hitachi Astemo Bekasi Powertrain Systems</em>, <em>PT Matsuo Precision Indonesia</em>, dan <em>PT Federal Nittan Industries</em>.
+                        </p>
+                    </div>
+
+                    <!-- Skill Badges -->
+                    <div>
+                        <h4 class="font-extrabold text-slate-900 text-base mb-4 flex items-center gap-2">
+                            <i class="fas fa-cogs text-blue-600"></i> Matriks Kemampuan & Kompetensi
+                        </h4>
+
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                            <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200/80 card-hover">
+                                <i class="fas fa-search-plus text-blue-600 text-xl mb-2 block"></i>
+                                <h5 class="font-bold text-slate-900 text-xs">Quality Control & Line Inspection</h5>
+                                <p class="text-[11px] text-slate-500 mt-1">Checksheet, Genba, Visual Lup, Dimension</p>
+                            </div>
+                            <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200/80 card-hover">
+                                <i class="fas fa-microchip text-blue-600 text-xl mb-2 block"></i>
+                                <h5 class="font-bold text-slate-900 text-xs">IoT & Web Programming</h5>
+                                <p class="text-[11px] text-slate-500 mt-1">Sensor, Microcontroller, PHP, JS, SQL</p>
+                            </div>
+                            <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200/80 card-hover">
+                                <i class="fas fa-ruler-combined text-blue-600 text-xl mb-2 block"></i>
+                                <h5 class="font-bold text-slate-900 text-xs">Penggunaan Alat Ukur</h5>
+                                <p class="text-[11px] text-slate-500 mt-1">Jangka Sorong (Caliper), Micrometer</p>
+                            </div>
+                            <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200/80 card-hover">
+                                <i class="fas fa-industry text-blue-600 text-xl mb-2 block"></i>
+                                <h5 class="font-bold text-slate-900 text-xs">Plastik Injeksi & Assembling</h5>
+                                <p class="text-[11px] text-slate-500 mt-1">Mesin Injeksi, Component Assembly</p>
+                            </div>
+                            <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200/80 card-hover">
+                                <i class="fas fa-bolt text-blue-600 text-xl mb-2 block"></i>
+                                <h5 class="font-bold text-slate-900 text-xs">Instalasi Listrik & PLC</h5>
+                                <p class="text-[11px] text-slate-500 mt-1">Tenaga Listrik, Motor, Control Panel</p>
+                            </div>
+                            <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200/80 card-hover">
+                                <i class="fas fa-file-excel text-blue-600 text-xl mb-2 block"></i>
+                                <h5 class="font-bold text-slate-900 text-xs">Microsoft Office & Reporting</h5>
+                                <p class="text-[11px] text-slate-500 mt-1">Laporan Produksi & QC Harian</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hobi / Interests -->
+                    <div>
+                        <h4 class="font-bold text-slate-700 text-xs uppercase tracking-wider mb-2">Hobi & Olahraga:</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-slate-100 border border-slate-200 rounded-lg text-xs font-semibold text-slate-700"><i class="fas fa-volleyball-ball mr-1 text-blue-500"></i> Bola Voli</span>
+                            <span class="px-3 py-1 bg-slate-100 border border-slate-200 rounded-lg text-xs font-semibold text-slate-700"><i class="fas fa-futbol mr-1 text-emerald-500"></i> Sepak Bola & Futsal</span>
+                            <span class="px-3 py-1 bg-slate-100 border border-slate-200 rounded-lg text-xs font-semibold text-slate-700"><i class="fas fa-table-tennis mr-1 text-amber-500"></i> Bulu Tangkis (Badminton)</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Experience Section -->
+    <section id="pengalaman" class="py-20 px-4 bg-slate-900 text-white relative">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-xs font-bold text-blue-400 uppercase tracking-widest block mb-2">Track Record Industri</span>
+                <h2 class="text-3xl sm:text-4xl font-black tracking-tight mb-3">Riwayat Pengalaman Kerja</h2>
+                <div class="h-1.5 w-16 bg-blue-500 mx-auto rounded-full"></div>
+            </div>
+
+            <!-- Experience Timeline -->
+            <div class="relative border-l-2 border-slate-800 ml-4 sm:ml-8 pl-6 sm:pl-10 space-y-12">
+
+                <!-- 1. PT ICHIKOH INDONESIA -->
+                <div class="relative group">
+                    <div class="absolute -left-[2.1rem] sm:-left-[3.1rem] top-1.5 w-6 h-6 rounded-full bg-blue-600 border-4 border-slate-900 shadow-md"></div>
+                    <div class="bg-slate-800/80 p-6 sm:p-8 rounded-3xl border border-slate-700/80 shadow-xl card-hover">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+                            <div>
+                                <span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-300 text-xs font-bold rounded-lg mb-1 border border-blue-500/30">
+                                    JULI 2023 - JULI 2024
+                                </span>
+                                <h3 class="text-xl sm:text-2xl font-black text-white">PT ICHIKOH INDONESIA <span class="text-xs font-medium text-slate-400">(a Valeo company)</span></h3>
+                            </div>
+                            <span class="px-3 py-1 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs font-bold rounded-lg self-start sm:self-auto">
+                                Penilaian Kinerja: EXCELLENT
+                            </span>
+                        </div>
+                        <p class="text-blue-400 font-bold text-sm mb-4">OPERATOR QUALITY - QUALITY CONTROL LINE</p>
+                        
+                        <ul class="space-y-2 text-xs sm:text-sm text-slate-300 list-disc list-inside leading-relaxed">
+                            <li>Melakukan pengecekan dokumen produksi (checksheet produksi) secara berkala.</li>
+                            <li>Melakukan Genba ke area produksi untuk memastikan operator bekerja sesuai standar operasional (SOP).</li>
+                            <li>Melakukan pengecekan produk secara visual untuk mendeteksi potensi kecacatan/defect.</li>
+                            <li>Melakukan pengukuran dimensi produk menggunakan alat ukur presisi untuk memastikan produk sesuai standar.</li>
+                            <li>Menyusun laporan kerja harian hasil inspeksi Quality Control.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 2. PT HITACHI ASTEMO BEKASI POWERTRAIN SYSTEMS -->
+                <div class="relative group">
+                    <div class="absolute -left-[2.1rem] sm:-left-[3.1rem] top-1.5 w-6 h-6 rounded-full bg-blue-600 border-4 border-slate-900 shadow-md"></div>
+                    <div class="bg-slate-800/80 p-6 sm:p-8 rounded-3xl border border-slate-700/80 shadow-xl card-hover">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+                            <div>
+                                <span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-300 text-xs font-bold rounded-lg mb-1 border border-blue-500/30">
+                                    MEI 2021 - MEI 2023
+                                </span>
+                                <h3 class="text-xl sm:text-2xl font-black text-white">PT HITACHI ASTEMO BEKASI POWERTRAIN SYSTEMS</h3>
+                            </div>
+                            <span class="text-xs text-slate-400 font-medium">Assembling Line</span>
+                        </div>
+                        <p class="text-blue-400 font-bold text-sm mb-4">OPERATOR PRODUKSI - ASSEMBLING</p>
+
+                        <ul class="space-y-2 text-xs sm:text-sm text-slate-300 list-disc list-inside leading-relaxed">
+                            <li>Melakukan pengecekan komponen sebelum dirakit dan dipastikan OK sesuai dengan part number.</li>
+                            <li>Melakukan perakitan (assembling) presisi antara komponen satu dengan yang lainnya.</li>
+                            <li>Melakukan pengecekan hasil perakitan sesuai dengan standar kelayakan produk.</li>
+                            <li>Melakukan pengukuran teknis agar semua komponen yang dirakit memenuhi standar nilai pabrikasi.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 3. PT MATSUO PRECISION INDONESIA -->
+                <div class="relative group">
+                    <div class="absolute -left-[2.1rem] sm:-left-[3.1rem] top-1.5 w-6 h-6 rounded-full bg-blue-600 border-4 border-slate-900 shadow-md"></div>
+                    <div class="bg-slate-800/80 p-6 sm:p-8 rounded-3xl border border-slate-700/80 shadow-xl card-hover">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+                            <div>
+                                <span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-300 text-xs font-bold rounded-lg mb-1 border border-blue-500/30">
+                                    DESEMBER 2020 - AGUSTUS 2021
+                                </span>
+                                <h3 class="text-xl sm:text-2xl font-black text-white">PT MATSUO PRECISION INDONESIA</h3>
+                            </div>
+                            <span class="text-xs text-slate-400 font-medium">GIIC Cikarang</span>
+                        </div>
+                        <p class="text-blue-400 font-bold text-sm mb-4">OPERATOR PRODUKSI - PLASTIK INJEKSI</p>
+
+                        <ul class="space-y-2 text-xs sm:text-sm text-slate-300 list-disc list-inside leading-relaxed">
+                            <li>Mengoperasikan mesin cetak plastik injeksi (plastic injection molding machine).</li>
+                            <li>Melakukan pengecekan kualitas produk cetakan hasil produksi secara berkala.</li>
+                            <li>Melakukan pengukuran dimensi untuk memastikan produk cetak sesuai dengan spesifikasi cetakan.</li>
+                            <li>Membuat laporan hasil output produksi harian.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 4. PT FEDERAL NITTAN INDUSTRIES -->
+                <div class="relative group">
+                    <div class="absolute -left-[2.1rem] sm:-left-[3.1rem] top-1.5 w-6 h-6 rounded-full bg-blue-600 border-4 border-slate-900 shadow-md"></div>
+                    <div class="bg-slate-800/80 p-6 sm:p-8 rounded-3xl border border-slate-700/80 shadow-xl card-hover">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+                            <div>
+                                <span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-300 text-xs font-bold rounded-lg mb-1 border border-blue-500/30">
+                                    NOVEMBER 2018 - JULI 2020
+                                </span>
+                                <h3 class="text-xl sm:text-2xl font-black text-white">PT FEDERAL NITTAN INDUSTRIES</h3>
+                            </div>
+                            <span class="text-xs text-slate-400 font-medium">MM2100 Cikarang</span>
+                        </div>
+                        <p class="text-blue-400 font-bold text-sm mb-4">OPERATOR QUALITY VISUAL INSPECTION</p>
+
+                        <ul class="space-y-2 text-xs sm:text-sm text-slate-300 list-disc list-inside leading-relaxed">
+                            <li>Melakukan pengecekan visual produk mesin/katup otomotif setelah proses produksi.</li>
+                            <li>Melakukan proses cek visual produk mikro dengan bantuan kaca lup magnifikasi.</li>
+                            <li>Memberi marking pembeda pada produk yang dinyatakan OK maupun NG (Not Good).</li>
+                            <li>Membuat Laporan Hasil Inspeksi Produksi.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Transcripts Section -->
+    <section id="pendidikan" class="py-20 px-4 bg-white border-b border-slate-200/60">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-xs font-bold text-blue-600 uppercase tracking-widest block mb-2">Riwayat Akademik</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight mb-3">Pendidikan & Transkrip Nilai</h2>
+                <div class="h-1.5 w-16 bg-blue-600 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-8">
+                
+                <!-- S1 Bachelor Degree Card -->
+                <div class="lg:col-span-7 bg-slate-50 p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm space-y-6">
+                    <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-2 pb-4 border-b border-slate-200">
+                        <div>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs font-bold rounded-lg">2021 - 2025</span>
+                            <h3 class="text-2xl font-black text-slate-900 mt-2">UNIVERSITAS PELITA BANGSA</h3>
+                            <p class="text-sm font-semibold text-blue-600">S1 TEKNIK INFORMATIKA (Fakultas Teknik)</p>
+                        </div>
+                        <div class="text-left sm:text-right">
+                            <span class="inline-block px-3 py-1 bg-emerald-100 text-emerald-800 font-extrabold text-xs rounded-lg">
+                                IPK 3.72 (Pujian)
+                            </span>
+                            <p class="text-[11px] text-slate-500 mt-1">Lulus: 15 Agustus 2025</p>
+                        </div>
+                    </div>
+
+                    <!-- Skripsi Highlight -->
+                    <div class="bg-white p-5 rounded-2xl border border-blue-100 shadow-sm space-y-2">
+                        <span class="text-[11px] font-extrabold text-blue-600 uppercase tracking-wider block"><i class="fas fa-book-reader mr-1"></i> Judul Penelitian Skripsi S1:</span>
+                        <h4 class="font-extrabold text-slate-900 text-sm leading-snug">
+                            "PENGEMBANGAN SISTEM INFORMASI PEMANTAUAN DAN PENYIRAMAN TANAMAN CABAI BERBASIS IOT"
+                        </h4>
+                        <p class="text-xs text-slate-500 leading-relaxed">
+                            Mengintegrasikan sensor kelembapan tanah, mikrokontroler, dan sistem informasi berbasis web untuk pemantauan & penyiraman otomatis real-time.
+                        </p>
+                    </div>
+
+                    <!-- Highlight Key Academic Grades -->
+                    <div>
+                        <h5 class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">Nilai Mata Kuliah Unggulan (Transkrip S1):</h5>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5 text-xs font-semibold">
+                            <div class="p-2.5 bg-white rounded-xl border border-slate-200 flex justify-between items-center">
+                                <span class="text-slate-600">Pemrograman Web</span>
+                                <span class="text-blue-700 font-bold">A (4.00)</span>
+                            </div>
+                            <div class="p-2.5 bg-white rounded-xl border border-slate-200 flex justify-between items-center">
+                                <span class="text-slate-600">Automation System</span>
+                                <span class="text-blue-700 font-bold">A (4.00)</span>
+                            </div>
+                            <div class="p-2.5 bg-white rounded-xl border border-slate-200 flex justify-between items-center">
+                                <span class="text-slate-600">Software Quality Assurance</span>
+                                <span class="text-blue-700 font-bold">A- (3.70)</span>
+                            </div>
+                            <div class="p-2.5 bg-white rounded-xl border border-slate-200 flex justify-between items-center">
+                                <span class="text-slate-600">Pengembangan IoT</span>
+                                <span class="text-blue-700 font-bold">A (4.00)</span>
+                            </div>
+                            <div class="p-2.5 bg-white rounded-xl border border-slate-200 flex justify-between items-center">
+                                <span class="text-slate-600">Sistem Terdistribusi</span>
+                                <span class="text-blue-700 font-bold">A (4.00)</span>
+                            </div>
+                            <div class="p-2.5 bg-white rounded-xl border border-slate-200 flex justify-between items-center">
+                                <span class="text-slate-600">Penelitian Skripsi</span>
+                                <span class="text-blue-700 font-bold">A (4.00)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- High School & School History -->
+                <div class="lg:col-span-5 space-y-6">
+                    <!-- SMK Card -->
+                    <div class="bg-slate-50 p-6 rounded-3xl border border-slate-200 shadow-sm space-y-4">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <span class="px-2.5 py-0.5 bg-slate-200 text-slate-700 text-xs font-bold rounded">2015 - 2018</span>
+                                <h3 class="text-lg font-extrabold text-slate-900 mt-1">SMK YPP PURWOREJO</h3>
+                                <p class="text-xs font-bold text-blue-600">Teknik Instalasi Tenaga Listrik (Akreditasi A)</p>
+                            </div>
+                            <span class="text-[11px] bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded">Lulus Berijazah</span>
+                        </div>
+
+                        <div class="space-y-2 border-t border-slate-200 pt-3 text-xs">
+                            <span class="font-bold text-slate-700 block">Sertifikat UKK & Prakerin Kejuruan:</span>
+                            <div class="grid grid-cols-2 gap-2 text-slate-600">
+                                <div>• Instalasi Tenaga: <strong class="text-slate-900">89 / 95</strong></div>
+                                <div>• Sistem PLC: <strong class="text-slate-900">85 / 89</strong></div>
+                                <div>• Penerangan Listrik: <strong class="text-slate-900">86 / 86</strong></div>
+                                <div>• Nilai Prakerin: <strong class="text-blue-700">90.0 (Sangat Baik)</strong></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SMP & SD -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200">
+                            <span class="text-[11px] font-bold text-slate-400">2012 - 2015</span>
+                            <h4 class="font-bold text-slate-900 text-sm mt-0.5">SMP N 20 PURWOREJO</h4>
+                            <p class="text-[11px] text-slate-500">Lulus Berijazah</p>
+                        </div>
+                        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200">
+                            <span class="text-[11px] font-bold text-slate-400">2006 - 2012</span>
+                            <h4 class="font-bold text-slate-900 text-sm mt-0.5">SDN KENDALREJO</h4>
+                            <p class="text-[11px] text-slate-500">Lulus Berijazah</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured IoT Project Section -->
+    <section id="proyek" class="py-20 px-4 bg-slate-50 border-b border-slate-200/60">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-xs font-bold text-blue-600 uppercase tracking-widest block mb-2">Inovasi Teknologi S1</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight mb-3">Proyek IoT Skripsi (S.Kom)</h2>
+                <div class="h-1.5 w-16 bg-blue-600 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="bg-white p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-lg grid lg:grid-cols-12 gap-8 items-center">
+                <div class="lg:col-span-7 space-y-4">
+                    <span class="px-3 py-1 bg-blue-100 text-blue-700 text-xs font-extrabold rounded-lg">Sistem Cerdas Internet of Things</span>
+                    <h3 class="text-2xl font-black text-slate-900">Sistem Informasi Pemantauan & Penyiraman Tanaman Cabai Berbasis IoT</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Sistem ini dikembangkan untuk mengotomatiskan proses perawatan tanaman cabai menggunakan kombinasi sensor kelembapan tanah, pompa otomatis, dan dashboard monitoring real-time berbasis web.
+                    </p>
+
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
+                        <div class="p-3 bg-slate-50 rounded-xl border border-slate-100 text-xs">
+                            <span class="font-bold text-slate-900 block">Hardware / Sensor</span>
+                            <span class="text-slate-500">Soil Moisture & Microcontroller</span>
+                        </div>
+                        <div class="p-3 bg-slate-50 rounded-xl border border-slate-100 text-xs">
+                            <span class="font-bold text-slate-900 block">Web Dashboard</span>
+                            <span class="text-slate-500">Monitoring & Data Logging</span>
+                        </div>
+                        <div class="p-3 bg-slate-50 rounded-xl border border-slate-100 text-xs">
+                            <span class="font-bold text-slate-900 block">Automasi</span>
+                            <span class="text-slate-500">Pompa Penyiraman Presisi</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Live Simulation Card -->
+                <div class="lg:col-span-5 bg-slate-900 text-white p-6 rounded-2xl border border-slate-800 space-y-4 shadow-xl">
+                    <div class="flex justify-between items-center pb-3 border-b border-slate-800">
+                        <span class="text-xs font-bold text-emerald-400 flex items-center gap-1.5">
+                            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span> Simulator Dashboard IoT
+                        </span>
+                        <span class="text-[10px] bg-slate-800 px-2 py-0.5 rounded text-slate-400">Live Status</span>
+                    </div>
+
+                    <div class="space-y-3">
+                        <div class="flex justify-between text-xs">
+                            <span class="text-slate-400">Kelembapan Tanah:</span>
+                            <span id="iotMoistureVal" class="font-extrabold text-blue-400">68% (Optimal)</span>
+                        </div>
+                        <div class="w-full bg-slate-800 rounded-full h-2.5 overflow-hidden">
+                            <div id="iotMoistureBar" class="bg-blue-500 h-2.5 rounded-full transition-all duration-500" style="width: 68%"></div>
+                        </div>
+
+                        <div class="flex justify-between text-xs pt-2 border-t border-slate-800">
+                            <span class="text-slate-400">Status Pompa Penyiraman:</span>
+                            <span id="iotPumpStatus" class="font-bold text-slate-300">STANDBY (OFF)</span>
+                        </div>
+                    </div>
+
+                    <button onclick="toggleIotSimulation()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 rounded-xl text-xs transition">
+                        Simulasikan Penurunan Kelembapan (Triger Penyiraman)
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="kontak" class="py-20 px-4 bg-white">
+        <div class="max-w-4xl mx-auto text-center space-y-8">
+            <div>
+                <span class="text-xs font-bold text-blue-600 uppercase tracking-widest block mb-2">Hubungi Saya</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">Siap Untuk Berkontribusi di Perusahaan Anda</h2>
+            </div>
+
+            <div class="grid sm:grid-cols-3 gap-4">
+                <a href="mailto:achmadmahfud01@gmail.com" class="p-6 bg-slate-50 hover:bg-blue-50 rounded-2xl border border-slate-200 transition card-hover block text-center">
+                    <i class="fas fa-envelope text-blue-600 text-2xl mb-2"></i>
+                    <span class="font-bold text-slate-900 text-xs block">Email</span>
+                    <span class="text-xs text-slate-600">achmadmahfud01@gmail.com</span>
+                </a>
+                <a href="tel:082229956188" class="p-6 bg-slate-50 hover:bg-blue-50 rounded-2xl border border-slate-200 transition card-hover block text-center">
+                    <i class="fas fa-phone-alt text-emerald-600 text-2xl mb-2"></i>
+                    <span class="font-bold text-slate-900 text-xs block">Telepon / WhatsApp</span>
+                    <span class="text-xs text-slate-600">0822 2995 6188</span>
+                </a>
+                <div class="p-6 bg-slate-50 rounded-2xl border border-slate-200 text-center">
+                    <i class="fas fa-map-marker-alt text-red-500 text-2xl mb-2"></i>
+                    <span class="font-bold text-slate-900 text-xs block">Domisili</span>
+                    <span class="text-xs text-slate-600">Cikarang Barat, Bekasi</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-4 bg-slate-900 text-slate-400 text-xs border-t border-slate-800">
+        <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p>&copy; 2026 Achmad Mahfud, S.Kom. Hak Cipta Dilindungi.</p>
+            <div class="flex items-center gap-4">
+                <span>Dioptimalkan dengan Gemini AI API</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal Configuration Gemini API Key -->
+    <div id="apiKeyModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-700 rounded-3xl p-6 max-w-md w-full shadow-2xl space-y-4 text-white">
+            <div class="flex justify-between items-center pb-3 border-b border-slate-800">
+                <h3 class="font-bold text-base flex items-center gap-2"><i class="fas fa-key text-amber-400"></i> Pengaturan Gemini API Key</h3>
+                <button onclick="closeApiKeyModal()" class="text-slate-400 hover:text-white p-1"><i class="fas fa-times"></i></button>
+            </div>
+            <p class="text-xs text-slate-300 leading-relaxed">
+                Masukkan Gemini API Key gratis milik Anda untuk mengaktifkan AI secara real-time. Dapatkan key gratis dari <a href="https://aistudio.google.com/app/apikey" target="_blank" class="text-blue-400 underline font-bold">Google AI Studio</a>.
+            </p>
+            <div>
+                <label class="block text-xs font-bold text-slate-400 mb-1">Gemini API Key (AIzaSy...):</label>
+                <input type="password" id="userApiKeyInput" placeholder="Masukkan Google Gemini API Key Anda..." class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-blue-500">
+            </div>
+            <div class="flex gap-2 pt-2">
+                <button onclick="saveApiKey()" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 rounded-xl text-xs transition">Simpan Key</button>
+                <button onclick="clearApiKey()" class="bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold px-4 py-2.5 rounded-xl text-xs transition">Hapus Key</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Achmad Mahfud Full CV Knowledge Base for Gemini LLM
+        const ACHMAD_CV_DATA = `
+NAMA LENGKAP: ACHMAD MAHFUD, S.Kom.
+TEMPAT, TANGGAL LAHIR: Purworejo, 26 September 2000
+AGAMA: Islam | STATUS: Belum Kawin | TINGGI/BERAT: 165 cm / 56 kg | GOL DARAH: AB
+
+PENDIDIKAN:
+1. S1 TEKNIK INFORMATIKA - Universitas Pelita Bangsa (2021 - 2025). Lulus 15 Agustus 2025. Gelar: Sarjana Komputer (S.Kom.), IPK: 3.72 (Predikat Pujian / Cumlaude). Skripsi: "Pengembangan Sistem Informasi Pemantauan dan Penyiraman Tanaman Cabai Berbasis IoT". Nilai matkul A pada Pemrograman Web, Automation System, IoT, Sistem Terdistribusi, Software Quality Assurance.
+2. SMK YPP PURWOREJO (2015 - 2018) - Teknik Instalasi Tenaga Listrik (Terakreditasi A). Nilai UKK Instalasi Tenaga 89/95, PLC 85/89, Nilai Prakerin 90.0 (Sangat Baik).
+3. SMP N 20 Purworejo (2012 - 2015) & SDN Kendalrejo (2006 - 2012).
+
+PENGALAMAN KERJA (5+ TAHUN MANUFAKTUR OTOMOTIF):
+1. PT ICHIKOH INDONESIA (Valeo Group) [Juli 2023 - Juli 2024] - Operator Quality Control Line. Penilaian Kinerja: EXCELLENT. Tugas: Cek documents ceksheet produksi, Genba area produksi, cek visual & dimensi dengan alat ukur presisi, laporan kerja harian.
+2. PT HITACHI ASTEMO BEKASI POWERTRAIN SYSTEMS [Mei 2021 - Mei 2023] - Operator Produksi Assembling. Tugas: Cek part number komponen, perakitan presisi antar komponen otomotif, cek hasil perakitan, pengukuran standar nilai assembly.
+3. PT MATSUO PRECISION INDONESIA [Desember 2020 - Agustus 2021] - Operator Produksi Plastik Injeksi. Tugas: Mengoperasikan mesin cetak plastik injeksi, cek kualitas produk cetak, pengukuran dimensi.
+4. PT FEDERAL NITTAN INDUSTRIES [November 2018 - Juli 2020] - Operator Quality Visual Inspection. Tugas: Cek visual katup/produk mesin dengan kaca lup magnifikasi, marking OK/NG, laporan hasil produksi.
+
+KEMAMPUAN TEKNIS:
+Quality Control (Line & Visual Inspection, Genba, Ceksheet, Quality Assurance), Penggunaan Alat Ukur Presisi (Jangka Sorong/Caliper, Micrometer, Kaca Lup), Mesin Injeksi Plastik & Assembling Komponen, Instalasi Tenaga Listrik, Motor Listrik, PLC, Pekerjaan Las, Internet of Things (IoT), Web Programming (PHP, JS, SQL), Microsoft Office.
+
+ALAMAT DOMISILI: Kp. Cibarengkok RT 004 / RW 002, Desa Jatiwangi, Kec. Cikarang Barat, Kab. Bekasi, Jawa Barat.
+ALAMAT KTP: Kewarakan Wetan RT 003 / RW 001, Desa Kendalrejo, Kec. Pituruh, Kab. Purworejo, Jawa Tengah.
+KONTAK: Email achmadmahfud01@gmail.com | Phone/WA 082229956188
+`;
+
+        async function fetchWithBackoff(url, options, maxRetries = 3) {
+            let delay = 1000;
+            for (let i = 0; i < maxRetries; i++) {
+                try {
+                    const res = await fetch(url, options);
+                    if (res.status === 429) {
+                        await new Promise(r => setTimeout(r, delay));
+                        delay *= 2;
+                        continue;
+                    }
+                    return res;
+                } catch (e) {
+                    if (i === maxRetries - 1) throw e;
+                    await new Promise(r => setTimeout(r, delay));
+                    delay *= 2;
+                }
+            }
+        }
+
+        const chatForm = document.getElementById('chatForm');
+        const chatInput = document.getElementById('chatInput');
+        const chatBox = document.getElementById('chatBox');
+
+        async function askGeminiAssistant(userQuery) {
+            appendChatMessage('user', userQuery);
+            
+            // Loading bubble
+            const loadingId = 'loading-' + Date.now();
+            appendLoadingBubble(loadingId);
+
+            const apiKey = getActiveApiKey();
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
+
+            const systemPrompt = `Anda adalah Asisten AI Karir resmi untuk ACHMAD MAHFUD, S.Kom. Tugas Anda adalah menjawab pertanyaan perekrut / HRD dengan ramah, profesional, ringkas, dan persuasif menggunakan bahasa Indonesia.
+Berdasarkan data CV lengkap Achmad berikut:
+${ACHMAD_CV_DATA}
+
+Jawablah pertanyaan secara faktual, tepat, dan soroti kelebihan Achmad (seperti gelar S1 Informatika IPK 3.72 Pujian, pengalaman 5 tahun QC & Manufaktur di Ichikoh, Hitachi Astemo, Matsuo, Federal Nittan, dan sertifikasi/skill kelistrikan & IoT). Jawab ringkas maksimal 2-3 paragraf.`;
+
+            const payload = {
+                contents: [{ parts: [{ text: userQuery }] }],
+                systemInstruction: { parts: [{ text: systemPrompt }] }
+            };
+
+            try {
+                const response = await fetchWithBackoff(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const data = await response.json();
+                removeLoadingBubble(loadingId);
+
+                if (data.candidates && data.candidates[0]?.content?.parts?.[0]?.text) {
+                    const aiReply = data.candidates[0].content.parts[0].text;
+                    appendChatMessage('ai', aiReply);
+                } else {
+                    appendChatMessage('ai', getFallbackChatResponse(userQuery));
+                }
+            } catch (err) {
+                removeLoadingBubble(loadingId);
+                appendChatMessage('ai', getFallbackChatResponse(userQuery));
+            }
+        }
+
+        // Helper API Key handling for public deployment
+        function getActiveApiKey() {
+            const storedKey = localStorage.getItem('achmad_gemini_api_key');
+            if (storedKey && storedKey.trim() !== '') return storedKey.trim();
+            return typeof __google_api_key !== 'undefined' ? __google_api_key : '';
+        }
+
+        function openApiKeyModal() {
+            document.getElementById('userApiKeyInput').value = localStorage.getItem('achmad_gemini_api_key') || '';
+            document.getElementById('apiKeyModal').classList.remove('hidden');
+        }
+
+        function closeApiKeyModal() {
+            document.getElementById('apiKeyModal').classList.add('hidden');
+        }
+
+        function saveApiKey() {
+            const val = document.getElementById('userApiKeyInput').value.trim();
+            if (val) {
+                localStorage.setItem('achmad_gemini_api_key', val);
+                alert('API Key berhasil disimpan! Fitur AI siap digunakan.');
+            } else {
+                localStorage.removeItem('achmad_gemini_api_key');
+            }
+            updateApiKeyStatus();
+            closeApiKeyModal();
+        }
+
+        function clearApiKey() {
+            localStorage.removeItem('achmad_gemini_api_key');
+            document.getElementById('userApiKeyInput').value = '';
+            updateApiKeyStatus();
+            closeApiKeyModal();
+            alert('API Key dihapus. Mode AI beralih ke simulasi cerdas.');
+        }
+
+        function updateApiKeyStatus() {
+            const statusEl = document.getElementById('apiKeyStatusText');
+            const key = localStorage.getItem('achmad_gemini_api_key');
+            if (key) {
+                statusEl.innerText = 'Status: API Key Terpasang (Live Gemini API Connected)';
+                statusEl.className = 'text-[11px] text-emerald-400 font-bold block';
+            } else {
+                statusEl.innerText = 'Status: Mode Demo / Klik tombol kuning di atas untuk isi API Key';
+                statusEl.className = 'text-[11px] text-amber-400 block';
+            }
+        }
+
+        function getFallbackChatResponse(query) {
+            const q = query.toLowerCase();
+            if (q.includes('kualifikasi') || q.includes('ringkasan') || q.includes('siapa')) {
+                return "Achmad Mahfud, S.Kom. adalah lulusan S1 Teknik Informatika dari Universitas Pelita Bangsa dengan IPK 3.72 (Predikat Pujian). Ia memiliki pengalaman kerja lebih dari 5 tahun di industri manufaktur otomotif (QC & Produksi) serta latar belakang SMK Teknik Ketenagalistrikan.";
+            } else if (q.includes('qc') || q.includes('quality') || q.includes('pengalaman')) {
+                return "Achmad berpengalaman sebagai Operator Quality Control di PT Ichikoh Indonesia (Valeo Group) dengan predikat kinerja EXCELLENT dan di PT Federal Nittan Industries. Ia ahli dalam pemeriksaan visual, genba, checksheet, serta penggunaan alat ukur presisi (jangka sorong & micrometer).";
+            } else if (q.includes('s1') || q.includes('iot') || q.includes('skripsi')) {
+                return "Pada jenjang S1 Teknik Informatika, Achmad meraih predikat Pujian dengan Skripsi berbasis IoT berjudul 'Pengembangan Sistem Informasi Pemantauan dan Penyiraman Tanaman Cabai Berbasis IoT' yang menggabungkan sensor tanah, mikrokontroler, dan web monitoring.";
+            }
+            return "Terima kasih atas pertanyaannya! Achmad Mahfud memiliki kombinasi unik antara keahlian IT/IoT (S1 Komputer IPK 3.72) dan kedisiplinan industri manufaktur otomotif selama 5+ tahun. Silakan hubungi langsung via email achmadmahfud01@gmail.com atau Whatsapp 0822 2995 6188.";
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            updateApiKeyStatus();
+        });
+
+        function appendChatMessage(sender, text) {
+            const div = document.createElement('div');
+            div.className = 'flex gap-3 items-start';
+
+            if (sender === 'user') {
+                div.innerHTML = `
+                    <div class="w-8 h-8 rounded-lg bg-slate-700 shrink-0 flex items-center justify-center text-white text-xs font-bold ml-auto order-2">HR</div>
+                    <div class="bg-blue-600 text-white p-3.5 rounded-2xl rounded-tr-none max-w-2xl leading-relaxed ml-auto order-1">
+                        ${escapeHtml(text)}
+                    </div>
+                `;
+            } else {
+                div.innerHTML = `
+                    <div class="w-8 h-8 rounded-lg bg-blue-600 shrink-0 flex items-center justify-center text-white text-xs font-bold">AI</div>
+                    <div class="bg-slate-800/90 border border-slate-700 text-slate-200 p-3.5 rounded-2xl rounded-tl-none max-w-2xl leading-relaxed">
+                        ${formattedText(text)}
+                    </div>
+                `;
+            }
+            chatBox.appendChild(div);
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        function appendLoadingBubble(id) {
+            const div = document.createElement('div');
+            div.id = id;
+            div.className = 'flex gap-3 items-start';
+            div.innerHTML = `
+                <div class="w-8 h-8 rounded-lg bg-blue-600 shrink-0 flex items-center justify-center text-white text-xs font-bold">AI</div>
+                <div class="bg-slate-800/90 border border-slate-700 text-slate-400 p-3.5 rounded-2xl rounded-tl-none flex items-center gap-2">
+                    <i class="fas fa-spinner fa-spin text-blue-400"></i> AI sedang menganalisis data CV...
+                </div>
+            `;
+            chatBox.appendChild(div);
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        function removeLoadingBubble(id) {
+            const el = document.getElementById(id);
+            if (el) el.remove();
+        }
+
+        function sendQuickQuestion(text) {
+            chatInput.value = text;
+            chatForm.dispatchEvent(new Event('submit'));
+        }
+
+        chatForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const text = chatInput.value.trim();
+            if (!text) return;
+            chatInput.value = '';
+            askGeminiAssistant(text);
+        });
+
+        async function evaluateJobMatch() {
+            const jdText = document.getElementById('jdInput').value.trim();
+            if (!jdText) {
+                alert('Silakan masukkan deskripsi pekerjaan / Kriteria lowongan terlebih dahulu.');
+                return;
+            }
+
+            const btn = document.getElementById('evaluateMatchBtn');
+            const resultContainer = document.getElementById('matchResultContainer');
+            btn.disabled = true;
+            btn.innerHTML = `<i class="fas fa-spinner fa-spin mr-2"></i> Menganalisis dengan Gemini AI...`;
+
+            const apiKey = getActiveApiKey();
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
+
+            const systemPrompt = `Anda adalah Sistem AI Evaluator Rekrutmen. Tugas Anda adalah membandingkan Job Description (JD) yang diberikan dengan CV ACHMAD MAHFUD berikut:
+${ACHMAD_CV_DATA}
+
+Kembalikan output DALAM FORMAT JSON BERIKUT SAJA (tanpa karakter lain):
+{
+  "matchScore": number (1-100),
+  "pros": ["keunggulan 1", "keunggulan 2", "keunggulan 3"],
+  "cons": ["hal yang perlu diperhatikan / dipelajari 1", "hal 2"],
+  "coverLetter": "Draf surat pengantar / rekomendasi profesional 2 paragraf"
+}`;
+
+            const payload = {
+                contents: [{ parts: [{ text: `Job Description:\n${jdText}` }] }],
+                systemInstruction: { parts: [{ text: systemPrompt }] },
+                generationConfig: {
+                    responseMimeType: "application/json"
+                }
+            };
+
+            try {
+                const response = await fetchWithBackoff(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const data = await response.json();
+                const jsonText = data.candidates?.[0]?.content?.parts?.[0]?.text;
+                
+                if (jsonText) {
+                    const parsed = JSON.parse(jsonText);
+                    renderMatchResult(parsed);
+                } else {
+                    renderMatchResult({
+                        matchScore: 88,
+                        pros: [
+                            "Latar belakang S1 Teknik Informatika IPK 3.72 Pujian",
+                            "Pengalaman 5+ tahun di manufaktur otomotif (QC & Assembly)",
+                            "Menguasai alat ukur presisi & sistem checksheet produksi"
+                        ],
+                        cons: [
+                            "Perlu penyesuaian awal dengan spesifikasi sistem kerja baru perusahaan"
+                        ],
+                        coverLetter: "Dengan hormat,\n\nBerdasarkan kriteria posisi yang dibutuhkan, Achmad Mahfud, S.Kom. memiliki kualifikasi yang sangat solid dengan kombinasi S1 Teknik Informatika (IPK 3.72 Pujian) dan pengalaman kerja 5+ tahun di manufaktur otomotif terkemuka seperti PT Ichikoh Indonesia dan Hitachi Astemo.\n\nDengan disiplin kerja QC yang teruji serta pemahaman teknis IT/IoT, ia siap memberikan kontribusi terbaik untuk efisiensi dan kualitas produksi di perusahaan Anda."
+                    });
+                }
+            } catch (err) {
+                renderMatchResult({
+                    matchScore: 88,
+                    pros: [
+                        "Latar belakang S1 Teknik Informatika IPK 3.72 Pujian",
+                        "Pengalaman 5+ tahun di manufaktur otomotif (QC & Assembly)",
+                        "Menguasai alat ukur presisi & sistem checksheet produksi"
+                    ],
+                    cons: [
+                        "Perlu penyesuaian awal dengan spesifikasi sistem kerja baru perusahaan"
+                    ],
+                    coverLetter: "Dengan hormat,\n\nBerdasarkan kriteria posisi yang dibutuhkan, Achmad Mahfud, S.Kom. memiliki kualifikasi yang sangat solid dengan kombinasi S1 Teknik Informatika (IPK 3.72 Pujian) dan pengalaman kerja 5+ tahun di manufaktur otomotif terkemuka seperti PT Ichikoh Indonesia dan Hitachi Astemo.\n\nDengan disiplin kerja QC yang teruji serta pemahaman teknis IT/IoT, ia siap memberikan kontribusi terbaik untuk efisiensi dan kualitas produksi di perusahaan Anda."
+                });
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = `<i class="fas fa-calculator"></i> Analisis Kecocokan Job & Buatkan Surat Rekomendasi`;
+            }
+        }
+
+        function renderMatchResult(data) {
+            const container = document.getElementById('matchResultContainer');
+            container.classList.remove('hidden');
+
+            document.getElementById('matchScoreText').innerText = `${data.matchScore}% Match`;
+            document.getElementById('matchProgressBar').style.width = `${data.matchScore}%`;
+
+            const prosList = document.getElementById('matchProsList');
+            prosList.innerHTML = (data.pros || []).map(p => `<div>• ${escapeHtml(p)}</div>`).join('');
+
+            const consList = document.getElementById('matchConsList');
+            consList.innerHTML = (data.cons || []).map(c => `<div>• ${escapeHtml(c)}</div>`).join('');
+
+            document.getElementById('coverLetterText').innerText = data.coverLetter || '';
+            container.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function copyCoverLetter() {
+            const text = document.getElementById('coverLetterText').innerText;
+            if (!text) return;
+            const temp = document.createElement('textarea');
+            temp.value = text;
+            document.body.appendChild(temp);
+            temp.select();
+            document.execCommand('copy');
+            document.body.removeChild(temp);
+            alert('Surat pengantar berhasil disalin ke clipboard!');
+        }
+
+        let audioInstance = null;
+        const ttsPlayBtn = document.getElementById('ttsPlayBtn');
+        const ttsBtnText = document.getElementById('ttsBtnText');
+        const ttsStatus = document.getElementById('ttsStatus');
+
+        ttsPlayBtn.addEventListener('click', async () => {
+            if (audioInstance) {
+                audioInstance.pause();
+                audioInstance = null;
+                ttsBtnText.innerText = 'Dengarkan Ringkasan AI (Voice)';
+                return;
+            }
+
+            ttsStatus.classList.remove('hidden');
+            ttsBtnText.innerText = 'Memuat Audio AI...';
+
+            const apiKey = getActiveApiKey();
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-tts:generateContent?key=${apiKey}`;
+
+            const textPrompt = `Say cheerfully in Indonesian: Halo! Nama saya Achmad Mahfud, Sarjana Komputer lulusan Universitas Pelita Bangsa dengan IPK tiga koma tujuh dua Predikat Pujian. Saya berpengalaman lebih dari lima tahun di industri manufaktur otomotif sebagai Quality Inspector dan Operator Produksi di PT Ichikoh Indonesia, Hitachi Astemo, Matsuo Precision, dan Federal Nittan. Saya memiliki keahlian Quality Control, kelistrikan, dan IoT. Terima kasih telah mengunjungi portofolio saya!`;
+
+            const payload = {
+                contents: [{ parts: [{ text: textPrompt }] }],
+                generationConfig: {
+                    responseModalities: ["AUDIO"],
+                    speechConfig: {
+                        voiceConfig: {
+                            prebuiltVoiceConfig: { voiceName: "Kore" }
+                        }
+                    }
+                }
+            };
+
+            try {
+                const response = await fetchWithBackoff(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const data = await response.json();
+                const part = data?.candidates?.[0]?.content?.parts?.[0];
+                const audioDataBase64 = part?.inlineData?.data;
+                const mimeType = part?.inlineData?.mimeType || "";
+
+                if (audioDataBase64) {
+                    const sampleRate = parseInt(mimeType.match(/rate=(\d+)/)?.[1] || "24000", 10);
+                    const pcmBuffer = base64ToArrayBuffer(audioDataBase64);
+                    const pcm16 = new Int16Array(pcmBuffer);
+                    const wavBlob = pcmToWav(pcm16, sampleRate);
+                    const audioUrl = URL.createObjectURL(wavBlob);
+
+                    audioInstance = new Audio(audioUrl);
+                    audioInstance.play();
+                    ttsBtnText.innerText = 'Hentikan Audio AI';
+
+                    audioInstance.onended = () => {
+                        audioInstance = null;
+                        ttsBtnText.innerText = 'Dengarkan Ringkasan AI (Voice)';
+                    };
+                } else {
+                    alert('Gagal menghasilkan audio TTS. Menggunakan Browser Speech Fallback.');
+                    speakWithBrowserTTS(textPrompt);
+                }
+            } catch (e) {
+                speakWithBrowserTTS(textPrompt);
+            } finally {
+                ttsStatus.classList.add('hidden');
+            }
+        });
+
+        function speakWithBrowserTTS(text) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                const cleanText = text.replace('Say cheerfully in Indonesian: ', '');
+                const utterance = new SpeechSynthesisUtterance(cleanText);
+                utterance.lang = 'id-ID';
+                utterance.onstart = () => { ttsBtnText.innerText = 'Hentikan Audio AI'; };
+                utterance.onend = () => { ttsBtnText.innerText = 'Dengarkan Ringkasan AI (Voice)'; audioInstance = null; };
+                window.speechSynthesis.speak(utterance);
+                audioInstance = { pause: () => window.speechSynthesis.cancel() };
+            } else {
+                alert('Browser Anda tidak mendukung Web Speech API.');
+            }
+        }
+
+        // PCM to WAV helper functions
+        function base64ToArrayBuffer(base64) {
+            const binaryString = window.atob(base64);
+            const len = binaryString.length;
+            const bytes = new Uint8Array(len);
+            for (let i = 0; i < len; i++) {
+                bytes[i] = binaryString.charCodeAt(i);
+            }
+            return bytes.buffer;
+        }
+
+        function pcmToWav(pcm16Data, sampleRate = 24000) {
+            const numChannels = 1;
+            const byteRate = sampleRate * numChannels * 2;
+            const blockAlign = numChannels * 2;
+            const buffer = new ArrayBuffer(44 + pcm16Data.length * 2);
+            const view = new DataView(buffer);
+
+            writeString(view, 0, 'RIFF');
+            view.setUint32(4, 36 + pcm16Data.length * 2, true);
+            writeString(view, 8, 'WAVE');
+            writeString(view, 12, 'fmt ');
+            view.setUint32(16, 16, true);
+            view.setUint16(20, 1, true);
+            view.setUint16(22, numChannels, true);
+            view.setUint32(24, sampleRate, true);
+            view.setUint32(28, byteRate, true);
+            view.setUint16(32, blockAlign, true);
+            view.setUint16(34, 16, true);
+            writeString(view, 36, 'data');
+            view.setUint32(40, pcm16Data.length * 2, true);
+
+            let index = 44;
+            for (let i = 0; i < pcm16Data.length; i++) {
+                view.setInt16(index, pcm16Data[i], true);
+                index += 2;
+            }
+
+            return new Blob([buffer], { type: 'audio/wav' });
+        }
+
+        function writeString(view, offset, string) {
+            for (let i = 0; i < string.length; i++) {
+                view.setUint8(offset + i, string.charCodeAt(i));
+            }
+        }
+
+        function switchAiTab(tabName) {
+            const chatTab = document.getElementById('aiTabChat');
+            const matchTab = document.getElementById('aiTabMatch');
+            const chatBtn = document.getElementById('tabChatBtn');
+            const matchBtn = document.getElementById('tabMatchBtn');
+
+            if (tabName === 'chat') {
+                chatTab.classList.remove('hidden');
+                matchTab.classList.add('hidden');
+                chatBtn.className = 'px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition bg-blue-600 text-white shadow-md';
+                matchBtn.className = 'px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition text-slate-300 hover:text-white';
+            } else {
+                chatTab.classList.add('hidden');
+                matchTab.classList.remove('hidden');
+                matchBtn.className = 'px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition bg-blue-600 text-white shadow-md';
+                chatBtn.className = 'px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition text-slate-300 hover:text-white';
+            }
+        }
+
+        // IoT Interactive Simulator
+        let iotStateDry = false;
+        function toggleIotSimulation() {
+            const valEl = document.getElementById('iotMoistureVal');
+            const barEl = document.getElementById('iotMoistureBar');
+            const pumpEl = document.getElementById('iotPumpStatus');
+
+            if (!iotStateDry) {
+                iotStateDry = true;
+                valEl.innerText = '24% (Kering - Perlu Air)';
+                valEl.className = 'font-extrabold text-amber-400';
+                barEl.style.width = '24%';
+                barEl.className = 'bg-amber-500 h-2.5 rounded-full transition-all duration-500';
+                pumpEl.innerText = 'MEMUAT SERVO / POMPA ON (MENYIRAM)...';
+                pumpEl.className = 'font-bold text-emerald-400 animate-pulse';
+
+                setTimeout(() => {
+                    iotStateDry = false;
+                    valEl.innerText = '75% (Selesai Disiram)';
+                    valEl.className = 'font-extrabold text-blue-400';
+                    barEl.style.width = '75%';
+                    barEl.className = 'bg-blue-500 h-2.5 rounded-full transition-all duration-500';
+                    pumpEl.innerText = 'STANDBY (OFF)';
+                    pumpEl.className = 'font-bold text-slate-300';
+                }, 3000);
+            }
+        }
+
+        // Mobile Nav Toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('.mobile-link').forEach(l => {
+            l.addEventListener('click', () => {
+                document.getElementById('mobileMenu').classList.add('hidden');
+            });
+        });
+
+        function escapeHtml(str) {
+            return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        }
+
+        function formattedText(str) {
+            return escapeHtml(str).replace(/\n/g, '<br>').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        }
+    </script>
+</body>
+</html>
